@@ -7,6 +7,7 @@ Written against Python 2.7, it leans **HEAVILY** on the work of [Spotipy module]
 
 ## Running
 Run from cron with the following syntax:
+
 00 7 * * mon /opt/clone-playlist/clone-playlist.py dw
 
 00 9 * * thu /opt/clone-playlist/clone-playlist.py tbt
