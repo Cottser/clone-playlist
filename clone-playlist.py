@@ -17,9 +17,9 @@ def get_source_tracks(username, playlist_id):
 def create_playlist(playlist_type):
   pl_date = datetime.date.today().strftime('%m/%d/%y')
   if playlist_type == 'dw':
-    pl_name = 'Test - Discover Weekly for %s'%(pl_date)
+    pl_name = 'Discover Weekly for %s'%(pl_date)
   elif playlist_type == 'tbt':
-    pl_name = 'Test - TBT for %s'%(pl_date)
+    pl_name = 'TBT for %s'%(pl_date)
   new_pl_id = sp.user_playlist_create(user, pl_name, public=False)
   return new_pl_id['id']
 
