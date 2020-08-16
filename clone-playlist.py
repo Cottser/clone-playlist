@@ -18,8 +18,8 @@ def create_playlist(playlist_type):
   pl_date = datetime.date.today().strftime('%Y-%m-%d')
   if playlist_type == 'dw':
     pl_name = 'Discover Weekly for %s'%(pl_date)
-  elif playlist_type == 'tbt':
-    pl_name = 'TBT for %s'%(pl_date)
+  elif playlist_type == 'rr':
+    pl_name = 'Release Radar for %s'%(pl_date)
   new_pl_id = sp.user_playlist_create(user, pl_name, public=False)
   return new_pl_id['id']
 
@@ -40,11 +40,11 @@ songs = []
 if sys.argv[1] == 'dw':
   pl_user = config.get('playlists','dw_uri').split(':')[2]
   pl_id = config.get('playlists','dw_uri').split(':')[4]
-elif sys.argv[1] == 'tbt':
-  pl_user = config.get('playlists','tbt_uri').split(':')[2]
-  pl_id = config.get('playlists','tbt_uri').split(':')[4]
+elif sys.argv[1] == 'rr':
+  pl_user = config.get('playlists','rr_uri').split(':')[2]
+  pl_id = config.get('playlists','rr_uri').split(':')[4]
 else:
-   print "Bad arguement! Either dw or tbt."
+   print "Bad arguement! Either dw or rr."
    sys.exit(1)
 
 token = util.prompt_for_user_token(user, scope='playlist-modify-private', client_id=client_id, client_secret=client_secret)
