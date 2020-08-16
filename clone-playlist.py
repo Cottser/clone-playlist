@@ -7,8 +7,8 @@ import datetime
 from ConfigParser import SafeConfigParser
 
 
-def get_source_tracks(username, playlist_id):
-  results = sp.user_playlist_tracks(username, playlist_id)
+def get_source_tracks(playlist_id):
+  results = sp.user_playlist_tracks(None, playlist_id)
   tracks = results['items']
   track_ids = [track['track']['id'] for track in tracks]
   return track_ids
@@ -38,11 +38,9 @@ user = config.get('credentials', 'profile_uri').split('/')[4]
 songs = []
 
 if sys.argv[1] == 'dw':
-  pl_user = config.get('playlists','dw_uri').split(':')[2]
-  pl_id = config.get('playlists','dw_uri').split(':')[4]
+  pl_id = config.get('playlists','dw_uri').split(':')[2]
 elif sys.argv[1] == 'rr':
-  pl_user = config.get('playlists','rr_uri').split(':')[2]
-  pl_id = config.get('playlists','rr_uri').split(':')[4]
+  pl_id = config.get('playlists','rr_uri').split(':')[2]
 else:
    print "Bad arguement! Either dw or rr."
    sys.exit(1)
@@ -50,5 +48,5 @@ else:
 token = util.prompt_for_user_token(user, scope='playlist-modify-private', client_id=client_id, client_secret=client_secret)
 sp = spotipy.Spotify(auth=token)
 created_pl_id = create_playlist(sys.argv[1])
-songs = get_source_tracks(pl_user, pl_id)
+songs = get_source_tracks(pl_id)
 add_tracks_new_playlist(created_pl_id, songs)
