@@ -36,7 +36,7 @@ config.read(config_path)
 client_id = config.get('credentials', 'id')
 client_secret = config.get('credentials', 'secret')
 callback_uri = config.get('credentials', 'callback_uri')
-user = config.get('credentials', 'profile_uri').split('/')[4]
+user = config.get('credentials', 'profile_uri').split(':')[2]
 songs = []
 
 if sys.argv[1] == 'dw':
