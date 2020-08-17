@@ -1,4 +1,4 @@
-# clone-playlist
+# spotify-clone-playlist
 Python program to clone Discover Weekly and/or Release Radar Spotify playlists to a personal, dated playlist.
 
 ## Prerequisites
@@ -14,6 +14,6 @@ The first time you run it, you will go through the OAuth authorization flow. [Th
 Run from cron with the following syntax (timing in the examples is roughly based on EST):
 
 ```
-00 5 * * mon ~/bin/clone-playlist/clone-playlist.py dw
-00 5 * * fri ~/bin/clone-playlist/clone-playlist.py rr
+00 5 * * mon ~/bin/spotify-clone-playlist/clone-playlist.py dw
+00 5 * * fri ~/bin/spotify-clone-playlist/clone-playlist.py rr
 ```
