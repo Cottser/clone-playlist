@@ -30,7 +30,7 @@ def add_tracks_new_playlist(new_pl_id, tracks):
   result = sp.user_playlist_add_tracks(user, new_pl_id, tracks)
   return
 
-config_path = os.path.expanduser('~') + '/.spotify_pl.conf'
+config_path = os.path.expanduser('~') + '/.config/spotify-clone-playlist.conf'
 config = SafeConfigParser()
 config.read(config_path)
 client_id = config.get('credentials', 'id')
