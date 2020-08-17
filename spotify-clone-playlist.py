@@ -37,6 +37,7 @@ client_id = config.get('credentials', 'id')
 client_secret = config.get('credentials', 'secret')
 callback_uri = config.get('credentials', 'callback_uri')
 user = config.get('credentials', 'profile_uri').split(':')[2]
+cache_path = os.path.expanduser('~') + '/.cache-' + user
 songs = []
 
 if sys.argv[1] == 'dw':
@@ -47,7 +48,7 @@ else:
    print "Bad arguement! Either dw or rr."
    sys.exit(1)
 
-auth_manager=SpotifyOAuth(scope=scope, client_id=client_id, client_secret=client_secret, redirect_uri=callback_uri, username=user)
+auth_manager=SpotifyOAuth(scope=scope, client_id=client_id, client_secret=client_secret, redirect_uri=callback_uri, username=user, cache_path=cache_path)
 sp = spotipy.Spotify(auth_manager=auth_manager)
 created_pl_id = create_playlist(sys.argv[1])
 songs = get_source_tracks(pl_id)
