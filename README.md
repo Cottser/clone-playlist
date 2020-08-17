@@ -14,6 +14,6 @@ The first time you run it, you will go through the OAuth authorization flow, so 
 Run from cron with the following syntax (timing in the examples is roughly based on EST):
 
 ```
-00 5 * * mon ~/bin/spotify-clone-playlist.py dw
-00 5 * * fri ~/bin/spotify-clone-playlist.py rr
+00 5 * * mon /full/path/to/spotify-clone-playlist.py dw
+00 5 * * fri /full/path/to/spotify-clone-playlist.py rr
 ```
