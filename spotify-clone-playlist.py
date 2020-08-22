@@ -9,10 +9,18 @@ from ConfigParser import SafeConfigParser
 
 scope = 'playlist-modify-private'
 
+def _filter_tracks(track):
+  if track['track'] is not None:
+    return True
+  else:
+    return False
+
 def get_source_tracks(playlist_id):
   results = sp.playlist_tracks(playlist_id)
   tracks = results['items']
-  track_ids = [track['track']['id'] for track in tracks]
+
+  filtered_tracks = filter(_filter_tracks, tracks)
+  track_ids = [track['track']['id'] for track in filtered_tracks]
   return track_ids
 
 
