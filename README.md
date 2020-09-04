@@ -1,6 +1,8 @@
 # spotify-clone-playlist
 Python script to clone Discover Weekly and/or Release Radar Spotify playlists to a personal, dated playlist.
 
+Forked from [hrast01/clone-playlist](https://github.com/hrast01/clone-playlist) and updated to work with newer Spotipy/Spotify APIs, as well as change Throwback Thursday to Release Radar.
+
 ## Prerequisites
 Written against Python 2.7, it leans **HEAVILY** on the work of [Spotipy module](https://github.com/plamere/spotipy) to handle account authorization and abstraction of the Spotify API.
 
@@ -14,6 +16,6 @@ The first time you run it, you will go through the OAuth authorization flow, so 
 Run from cron with the following syntax (timing in the examples is roughly based on EST):
 
 ```
-00 5 * * mon /full/path/to/spotify-clone-playlist.py dw
-00 5 * * fri /full/path/to/spotify-clone-playlist.py rr
+00 6 * * mon /full/path/to/spotify-clone-playlist.py dw
+00 6 * * fri /full/path/to/spotify-clone-playlist.py rr
 ```
